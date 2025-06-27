@@ -1,10 +1,11 @@
-# ---------- build stage ----------
+# ---------- build ----------
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY . .
-RUN ./mvnw -ntp -DskipTests clean package
+COPY pom.xml .
+COPY src src
+RUN mvn -ntp -DskipTests clean package
 
-# ---------- run stage ------------
+# ---------- run ------------
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/personal-finance-manager-*.jar app.jar
