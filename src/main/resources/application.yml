@@ -1,0 +1,22 @@
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: false
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/pfm
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+logging:
+  level:
+    org.springframework.security: warn
+    org.hibernate.SQL: off
