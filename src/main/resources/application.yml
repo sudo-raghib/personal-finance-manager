@@ -1,9 +1,11 @@
 server:
+  port: ${PORT:8080}
   servlet:
     session:
       cookie:
         http-only: true
         secure: false
+
 spring:
   datasource:
     url: jdbc:h2:file:./data/pfm
@@ -16,6 +18,7 @@ spring:
   h2:
     console:
       enabled: true
+
 logging:
   level:
     org.springframework.security: warn
